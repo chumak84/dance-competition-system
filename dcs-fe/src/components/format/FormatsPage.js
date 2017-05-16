@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import * as formatActions from '../../actions/formatActions';
 
 class FormatsPage extends React.Component {
@@ -21,7 +22,7 @@ class FormatsPage extends React.Component {
     }
 
     onClickSave() {
-        this.props.createFormat(this.state.format);
+        this.props.actions.createFormat(this.state.format);
     }
 
     formatRow(format, index) {
@@ -49,7 +50,7 @@ class FormatsPage extends React.Component {
 
 FormatsPage.propTypes = {
     formats: PropTypes.array.isRequired,
-    createFormat: PropTypes.func.isRequired
+    actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
@@ -60,7 +61,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        createFormat: format => dispatch(formatActions.createFormat(format))
+        actions: bindActionCreators(formatActions, dispatch)
     };
 }
 

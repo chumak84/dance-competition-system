@@ -1,3 +1,5 @@
+import * as types from './actionTypes';
+
 export function createFormat(format) {
-    return { type: 'CREATE_FORMAT', format };
+    return { type: types.CREATE_FORMAT, format };
 }
