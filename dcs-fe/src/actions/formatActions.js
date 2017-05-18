@@ -1,5 +1,16 @@
 import * as types from './actionTypes';
+import formatApi from '../api/mockFormatApi';
 
-export function createFormat(format) {
-    return { type: types.CREATE_FORMAT, format };
+export function loadFormatsSuccess(formats) {
+    return { type: types.LOAD_FORMATS_SUCCESS, formats };
+}
+
+export function loadFormats() {
+    return function(dispatch) {
+        return formatApi.getAllFormats().then(formats => {
+            dispatch(loadFormatsSuccess(formats));
+        }).catch(error => {
+            throw(error);
+        });
+    };
 }
