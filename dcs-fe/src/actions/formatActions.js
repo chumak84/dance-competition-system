@@ -26,7 +26,7 @@ export function loadFormats() {
 export function saveFormat(format) {
     return function(dispatch) {
         return formatApi.saveFormat(format).then(savedFormat => {
-            savedFormat.id ? dispatch(updateFormatSuccess(savedFormat))
+            format.id ? dispatch(updateFormatSuccess(savedFormat))
                 : dispatch(createFormatSuccedd(savedFormat));
         }).catch(error => {
             throw(error);
