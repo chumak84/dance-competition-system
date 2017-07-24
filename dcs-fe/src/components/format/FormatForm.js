@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TextInput from '../common/TextInput';
 
 const FormatForm = ({ format, onSave, onChange, loading, errors}) => {
@@ -8,7 +9,7 @@ const FormatForm = ({ format, onSave, onChange, loading, errors}) => {
             <TextInput 
                 name="name"
                 label="Name"
-                value={format.Name}
+                value={format.name}
                 onChange={onChange}
                 error={errors.title} />
             <input
@@ -22,11 +23,11 @@ const FormatForm = ({ format, onSave, onChange, loading, errors}) => {
 };
 
 FormatForm.propTypes = {
-    format: React.PropTypes.object.isRequired,
-    onSave: React.PropTypes.func.isRequired,
-    onChange: React.PropTypes.func.isRequired,
-    loading: React.PropTypes.bool,
-    errors: React.PropTypes.object
+    format: PropTypes.object.isRequired,
+    onSave: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
+    loading: PropTypes.bool,
+    errors: PropTypes.object
 };
 
 export default FormatForm;

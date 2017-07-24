@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as formatActions from '../../actions/formatActions';
@@ -8,7 +9,6 @@ class ManageFormatPage extends React.Component {
     constructor(props, context) {
         super(props, context);
 
-        debugger;
         this.state = {
             format: Object.assign({}, props.format),
             errors: {}
@@ -28,6 +28,7 @@ class ManageFormatPage extends React.Component {
     save(event) {
         event.preventDefault();
         this.props.actions.saveFormat(this.state.format);
+        this.context.router.history.push("/formats");
     }
 
     render() {
@@ -46,8 +47,18 @@ ManageFormatPage.propTypes = {
     actions: PropTypes.object.isRequired
 };
 
+ManageFormatPage.contextTypes = {
+    router: PropTypes.object
+};
+
 function mapStateToProps(state, ownProps) {
-    let format = { name: '', id: '' };
+    let id = ownProps.match.params.id;
+    let format;
+    if (id) {
+        format = state.formats.find(it => it.id == id);
+    } else {
+        format = { name: '', id: '' };
+    }
     return {
         format: format
     };

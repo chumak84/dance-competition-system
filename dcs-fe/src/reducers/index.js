@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import formats from './formatReducer';
+import ajaxStatus from './ajaxStatusReducer';
 
 const rootReducer = combineReducers({
-    formats
+    formats,
+    ajaxStatus
 });
 
 export default rootReducer;

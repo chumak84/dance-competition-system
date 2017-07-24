@@ -1,9 +1,10 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as formatActions from '../../actions/formatActions';
 import FormatList from './FormatList';
-import {browserHistory} from 'react-router';
+import {} from 'react-router-dom';
 
 class FormatsPage extends React.Component {
     constructor(props, context) {
@@ -17,7 +18,7 @@ class FormatsPage extends React.Component {
     }
 
     redirectToAddFormatPage(event) {
-        browserHistory.push('/format');
+        this.props.history.push('/format');
     }
 
     render () {
@@ -39,7 +40,8 @@ class FormatsPage extends React.Component {
 
 FormatsPage.propTypes = {
     formats: PropTypes.array.isRequired,
-    actions: PropTypes.object.isRequired
+    actions: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
