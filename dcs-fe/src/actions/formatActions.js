@@ -16,7 +16,6 @@ export function createFormatSuccedd(format) {
 
 export function loadFormats() {
     return dispatch => {
-        debugger;
         dispatch(beginAjaxCall());
         return formatApi.getAllFormats().then(formats => {
             dispatch(loadFormatsSuccess(formats));
