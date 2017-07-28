@@ -13,7 +13,8 @@ class ManageFormatPage extends React.Component {
             format: Object.assign({}, props.format),
             errors: {}
         };
-
+        
+        
         this.updateFormatState = this.updateFormatState.bind(this);
         this.save = this.save.bind(this);
     }
@@ -27,7 +28,12 @@ class ManageFormatPage extends React.Component {
 
     save(event) {
         event.preventDefault();
-        this.props.actions.saveFormat(this.state.format);
+        this.props.actions
+            .saveFormat(this.state.format)
+            .then(() => this.redirectToFormatsPage());
+    }
+
+    redirectToFormatsPage() {
         this.context.router.history.push("/formats");
     }
 
