@@ -11,10 +11,11 @@ class ManageFormatPage extends React.Component {
 
         this.state = {
             format: Object.assign({}, props.format),
+            saving: false,
             errors: {}
         };
         
-        
+
         this.updateFormatState = this.updateFormatState.bind(this);
         this.save = this.save.bind(this);
     }
@@ -28,9 +29,13 @@ class ManageFormatPage extends React.Component {
 
     save(event) {
         event.preventDefault();
+        this.setState({ saving: true })
         this.props.actions
             .saveFormat(this.state.format)
-            .then(() => this.redirectToFormatsPage());
+            .then(() => {
+                this.setState({ saving: false });
+                this.redirectToFormatsPage();
+            });
     }
 
     redirectToFormatsPage() {
@@ -43,7 +48,8 @@ class ManageFormatPage extends React.Component {
                 format={this.state.format}
                 errors={this.state.errors}
                 onChange={this.updateFormatState}
-                onSave={this.save} />
+                onSave={this.save}
+                saving={this.state.saving} />
         );
     }
 }
