@@ -6,9 +6,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceRoot}/dcs-services/bin/Debug/netcoreapp1.1/dcs-services.dll",
+            "program": "${workspaceRoot}/dcs-api/bin/Debug/netcoreapp1.1/dcs-api.dll",
             "args": [],
-            "cwd": "${workspaceRoot}/dcs-services",
+            "cwd": "${workspaceRoot}/dcs-api",
             "stopAtEntry": false,
             "launchBrowser": {
                 "enabled": true,
