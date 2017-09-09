@@ -2,11 +2,26 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "chrome",
+            "request": "attach",
+            "name": "Attach to Chrome",
+            "port": 9222,
+            "webRoot": "${workspaceRoot}/dcs-fe/src",
+            "url": "http://localhost:3000"
+        },
+        {
+            "type": "firefox",
+            "request": "attach",
+            "name": "Attach Firefox",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceRoot}/dcs-fe/src"
+        },
+        {
             "name": ".NET Core Launch (web)",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceRoot}/dcs-api/bin/Debug/netcoreapp1.1/dcs-api.dll",
+            "program": "${workspaceRoot}/dcs-api/bin/Debug/netcoreapp2.0/dcs-api.dll",
             "args": [],
             "cwd": "${workspaceRoot}/dcs-api",
             "stopAtEntry": false,
@@ -34,9 +49,34 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Launch Chrome",
+            "name": "Launch chrome",
             "url": "http://localhost:3000",
             "webRoot": "${workspaceRoot}/dcs-fe/src"
+        },
+        {
+            //"preLaunchTask": "build-and-run-fe",
+            "name": "Launch firefox",
+            "type": "firefox",
+            "request": "launch",
+            "reAttach": true,
+            "url": "http://localhost:3000",
+            "pathMappings": [{
+                "url": "webpack:///src",
+                "path": "${workspaceRoot}/dcs-fe/src"
+            }],
+            // "log": {
+            //     "consoleLevel": {
+            //         "PathConversion": "Debug",
+            //         "default": "Error"
+            //     }
+            // },
+            "webRoot": "${workspaceRoot}/src"
+        }
+    ], 
+    "compounds": [
+        {
+            "name": "Compound",
+            "configurations": [".NET Core Launch (web)", "Launch firefox"]
         }
     ]
 }

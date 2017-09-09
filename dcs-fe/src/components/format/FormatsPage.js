@@ -1,16 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import * as formatActions from '../../actions/formatActions';
 import FormatList from './FormatList';
-import {} from 'react-router-dom';
+import { } from 'react-router-dom';
+import toastr from 'toastr';
 
 class FormatsPage extends React.Component {
     constructor(props, context) {
         super(props, context);
 
         this.redirectToAddFormatPage = this.redirectToAddFormatPage.bind(this);
+    }
+
+    componentWillMount() {
+        if (this.props.formats.length <= 0)
+            this.props.actions.loadFormats()
+                .then(() => toastr.success("Formats are loaded"));
     }
 
     formatRow(format, index) {
@@ -21,8 +28,8 @@ class FormatsPage extends React.Component {
         this.props.history.push('/format');
     }
 
-    render () {
-        const {formats} = this.props;
+    render() {
+        const { formats } = this.props;
 
         return (
             <div>

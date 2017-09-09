@@ -3,14 +3,14 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:55057/",
+      "applicationUrl": "http://localhost:5000/",
       "sslPort": 0
     }
   },
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
-      "launchBrowser": true,
+      "launchBrowser": false,
       "launchUrl": "api/formats",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
@@ -18,12 +18,12 @@
     },
     "dcs_api": {
       "commandName": "Project",
-      "launchBrowser": true,
+      "launchBrowser": false,
       "launchUrl": "api/formats",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:55058"
+      "applicationUrl": "http://localhost:5000"
     }
   }
 }

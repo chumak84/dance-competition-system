@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using dcs_api.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace dcs_api.Controllers
@@ -9,42 +10,45 @@ namespace dcs_api.Controllers
     [Route("api/[controller]")]
     public class FormatsController : Controller
     {
-        private static readonly Dictionary<int, string> _formats = new Dictionary<int, string>
+        private static readonly List<Format> _formats = new List<Format>();
+
+        static FormatsController()
         {
-            [1] = "Big Group",
-            [2] = "Small Group",
-            [3] = "Individual",
-            [4] = "Solo"
-        };
+            _formats.Add(new Format() { Id = 1, Name = "Big Group" });
+            _formats.Add(new Format() { Id = 2, Name = "Small Group" });
+            _formats.Add(new Format() { Id = 3, Name = "Individual" });
+            _formats.Add(new Format() { Id = 4, Name = "Solo" });
+        }
 
         [HttpGet]
-        public IDictionary<int, string> Get()
+        public List<Format> Get()
         {
             return _formats;
         }
 
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return _formats[id];
-        }
-
         [HttpPost]
-        public void Post([FromBody]string value)
+        public IActionResult Post([FromBody] Format value)
         {
-            _formats.Add(_formats.Keys.Max() + 1, value);
-        }
-
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-            _formats[id] = value;
+            if (value == null)
+                return BadRequest();
+            if (value.Id <= 0)
+            {
+                var newFormat = new Format() { Id = _formats.Max(n => n.Id) + 1, Name = value.Name };
+                _formats.Add(newFormat);
+                return Ok(newFormat);
+            }
+            else
+            {
+                Format format = _formats.Single(n => n.Id == value.Id);
+                format.Name = value.Name;
+                return Ok(format);
+            }
         }
 
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            _formats.Remove(id);
+            _formats.RemoveAll(n => n.Id == id);
         }
     }
 }

@@ -3,9 +3,9 @@ import React from 'react';
 class AboutPage extends React.Component {
     render () {
         return (
-            <div>
-                <h1>About</h1>
-                <p>About page</p>
+            <div className="jumbotron">
+                <h1>Dance Competition System</h1>
+                <p>System will help to setup and handle the competition event</p>
             </div>
         );
     }

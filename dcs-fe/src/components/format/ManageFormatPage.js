@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as formatActions from '../../actions/formatActions';
 import FormatForm from './FormatForm';
+import toastr from 'toastr';
 
 class ManageFormatPage extends React.Component {
     constructor(props, context) {
@@ -29,12 +30,17 @@ class ManageFormatPage extends React.Component {
 
     save(event) {
         event.preventDefault();
-        this.setState({ saving: true })
+        this.setState({ saving: true });
         this.props.actions
             .saveFormat(this.state.format)
             .then(() => {
                 this.setState({ saving: false });
                 this.redirectToFormatsPage();
+                toastr.success("Format is saved");
+            })
+            .catch(error => {
+                this.setState({ saving: false });
+                toastr.error("Format is not saved");
             });
     }
 
@@ -69,7 +75,7 @@ function mapStateToProps(state, ownProps) {
     if (id) {
         format = state.formats.find(it => it.id == id);
     } else {
-        format = { name: '', id: '' };
+        format = { name: '', id: -1 };
     }
     return {
         format: format

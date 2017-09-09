@@ -1,5 +1,5 @@
 import * as types from './actionTypes';
-import formatApi from '../api/mockFormatApi';
+import formatApi from '../api/formatApi';
 import { beginAjaxCall, endAjaxCall } from './ajaxStatusActions';
 
 export function loadFormatsSuccess(formats) {
@@ -29,7 +29,7 @@ export function saveFormat(format) {
     return function(dispatch) {
         dispatch(beginAjaxCall());
         return formatApi.saveFormat(format).then(savedFormat => {
-            format.id ? dispatch(updateFormatSuccess(savedFormat))
+            format.id > 0 ? dispatch(updateFormatSuccess(savedFormat))
                 : dispatch(createFormatSuccedd(savedFormat));
         }).catch(error => {
             throw(error);

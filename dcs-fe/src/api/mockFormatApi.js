@@ -4,19 +4,20 @@ import delay from './delay';
 // It uses setTimeout to simulate the delay of an AJAX call.
 // All calls return promises.
 const formats = [
-  { id: "Big-Group", name: "Big Group" },
-  { id: "Small-Group", name: "Small Group" },
-  { id: "Individual", name: "Individual" },
-  { id: "Solo", name: "Solo" },
+  { id: 1, name: "Big Group" },
+  { id: 2, name: "Small Group" },
+  { id: 3, name: "Individual" },
+  { id: 4, name: "Solo" },
 ];
+let nextId = 5;
 
 function replaceAll(str, find, replace) {
   return str.replace(new RegExp(find, 'g'), replace);
-}
+}//:blush:
 
 //This would be performed on the server in a real app. Just stubbing in.
 const generateId = (format) => {
-  return replaceAll(format.name, ' ', '-');
+  return nextId++;
 };
 
 class FormatApi {
@@ -57,9 +58,7 @@ class FormatApi {
   static deleteFormat(formatId) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        const indexOfFormatToDelete = formats.findIndex(format => {
-          formats.id == formatId;
-        });
+        const indexOfFormatToDelete = formats.findIndex(format => format.id == formatId);
         formats.splice(indexOfFormatToDelete, 1);
         resolve();
       }, delay);
