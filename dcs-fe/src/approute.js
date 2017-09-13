@@ -6,6 +6,7 @@ import HomePage from './components/home/HomePage';
 import AboutPage from './components/about/AboutPage';
 import FormatsPage from './components/format/FormatsPage';
 import ManageFormatPage from './components/format/ManageFormatPage';
+import ManageCompetitionPage from './components/competition/ManageCompetitionPage';
 
 class AppRoute extends React.Component {
 
@@ -19,6 +20,7 @@ class AppRoute extends React.Component {
                     <Route path="/format/:id" component={ManageFormatPage} />
                     <Route path="/format" component={ManageFormatPage} />
                     <Route path="/about" component={AboutPage} />
+                    <Route path="/competition/:id" component={ManageCompetitionPage} />
                 </Switch>
             </App>
         </BrowserRouter>
