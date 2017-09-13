@@ -16,7 +16,7 @@ class HomePage extends React.Component {
         return (
             <div>
                 Upcoming Competition Events
-                <Link className="btn btn-default" to="competition/new">Create</Link>
+                <Link className="button is-primary" to="competition/new">Create</Link>
             </div>
         );
     }
