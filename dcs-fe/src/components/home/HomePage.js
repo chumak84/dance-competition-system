@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class HomePage extends React.Component {
     constructor(props, context) {
@@ -15,8 +15,12 @@ class HomePage extends React.Component {
     render() {
         return (
             <div>
-                Upcoming Competition Events
-                <Link className="button is-primary" to="competition/new">Create</Link>
+                <div className="container">
+                    Upcoming Competition Events:
+                </div>
+                <div className="container">
+                    <Link className="button is-primary" to="competition/new">Create New</Link>
+                </div>
             </div>
         );
     }
