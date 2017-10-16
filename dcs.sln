@@ -1,9 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dcs-api", "dcs-api\dcs-api.csproj", "{6D65D99D-C991-479C-BFFC-9FE93E631E41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DcsControlPanel", "DcsControlPanel\DcsControlPanel.csproj", "{265D0613-A527-47EB-BEF9-6DCDA79E946A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{AA99278A-9C85-49CB-9997-3B4DEFC6D902}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{E913DA16-647E-4A3C-AC9A-361B8337A9C2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApplicationLayer", "ApplicationLayer", "{0D0448AE-61A8-4FE1-95EC-3E7AD5C6AEC5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DomainLayer", "DomainLayer", "{3BB9CE23-C588-402A-B2F4-8A0F313B8745}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{B6BF7430-9196-466F-9A2C-B6CACD722D18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +27,22 @@ Global
 		{6D65D99D-C991-479C-BFFC-9FE93E631E41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D65D99D-C991-479C-BFFC-9FE93E631E41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D65D99D-C991-479C-BFFC-9FE93E631E41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{265D0613-A527-47EB-BEF9-6DCDA79E946A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{265D0613-A527-47EB-BEF9-6DCDA79E946A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{265D0613-A527-47EB-BEF9-6DCDA79E946A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{265D0613-A527-47EB-BEF9-6DCDA79E946A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA99278A-9C85-49CB-9997-3B4DEFC6D902}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA99278A-9C85-49CB-9997-3B4DEFC6D902}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA99278A-9C85-49CB-9997-3B4DEFC6D902}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA99278A-9C85-49CB-9997-3B4DEFC6D902}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{265D0613-A527-47EB-BEF9-6DCDA79E946A} = {E913DA16-647E-4A3C-AC9A-361B8337A9C2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D0D9BA4A-A5C1-495E-A839-C48F225BAC10}
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:DcsControlPanel"
+                    xmlns:vms="clr-namespace:DcsControlPanel.ViewModels">
+    
+    <DataTemplate DataType="{x:Type vms:ScheduleCompetitionViewModel}">
+        <HeaderedContentControl Header="Create New Competition Event">
+            <StackPanel>
+                <TextBlock>Event Name</TextBlock>
+                <TextBox Text="{Binding Name}"></TextBox>
+                <TextBlock>Date</TextBlock>
+                <DatePicker SelectedDate="{Binding Date}"></DatePicker>
+                <Button Command="{Binding ScheduleCommand}">Create</Button>
+            </StackPanel>
+        </HeaderedContentControl>
+    </DataTemplate>
+    
+</ResourceDictionary>

@@ -9,9 +9,7 @@ import ManageFormatPage from './components/format/ManageFormatPage';
 import ManageCompetitionPage from './components/competition/ManageCompetitionPage';
 
 class AppRoute extends React.Component {
-
     render() {
-        //debugger;
         return (<BrowserRouter>
             <App>
                 <Switch>
